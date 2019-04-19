@@ -1,0 +1,19 @@
+{
+  "$schema": "https://raw.githubusercontent.com/danger/peril/master/peril-settings-json.schema",
+
+  "settings": {
+    "modules": ["danger-plugin-spellcheck", "danger-plugin-yarn", "@slack/client", "semver-sort"]
+  },
+  "rules": {
+    "create (ref_type == tag)": ["org/new_tag.ts", "org/updateDangerSystems.ts"],
+    "pull_request.closed": "org/aeryn.ts",
+    "pull_request": ["org/debug.ts", "org/changelog.ts"],
+    "issue_comment": "org/markAsMergeOnGreen.ts",
+    "issues.opened": "org/checkTemplate.ts",
+    "status.success": "org/mergeOnGreen.ts"
+  },
+  "tasks": {
+    "trigger-scheduler": "testing/trigger-scheduler.ts",
+    "logger": "testing/logger.ts"
+  }
+}
